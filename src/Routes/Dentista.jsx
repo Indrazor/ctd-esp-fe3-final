@@ -13,11 +13,22 @@ const Dentista = () => {
   }, []);
 
   return (
-    <div className="card">
-      <img className="card" src="/public/images/doctor.jpg" alt="doc" />
-      <h3>{user.name}</h3>
-      <h4>{user.username}</h4>
-      <button>⭐</button>
+    <div>
+        <h1>Detalle - {user.name}</h1>
+      <table>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Website</th>
+        </tr>
+        <tr>
+          <td>{user.name}</td>
+          <td>{user.email}</td>
+          <td>{user.phone}</td>
+          <td>{user.website}</td>
+        </tr>
+      </table>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Dentista from "./Routes/Dentista";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import { routes } from "./Components/utils/routes";
+import ScrollToTopButton from "./Components/ScrollToTopButton";
 
 function App() {
   return (
@@ -17,8 +18,12 @@ function App() {
         <Route path={routes.favs} element={<Favs />} />
         <Route path={routes.contacto} element={<Contacto />} />
         <Route path={routes.dentista} element={<Dentista />} />
-        <Route path={routes.notFound} element={<h1>Ruta no encontrada...</h1>}/> 
+        <Route
+          path={routes.notFound}
+          element={<h1>Ruta no encontrada...</h1>}
+        />
       </Routes>
+      <ScrollToTopButton />
       <Footer />
     </div>
   );
