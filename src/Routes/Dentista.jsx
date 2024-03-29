@@ -1,11 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Dentista = () => {
   const [user, setUser] = useState({});
   const params = useParams();
-  console.log(params);
   useEffect(() => {
     axios("https://jsonplaceholder.typicode.com/users/" + params.id).then(
       (res) => setUser(res.data)
@@ -14,7 +13,7 @@ const Dentista = () => {
 
   return (
     <div>
-        <h1>Detalle - {user.name}</h1>
+      <h1>Detalle - {user.name}</h1>
       <table>
         <tr>
           <th>Nombre</th>

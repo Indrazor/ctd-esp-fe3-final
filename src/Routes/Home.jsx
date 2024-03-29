@@ -1,20 +1,15 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
 import Card from "../Components/Card";
+import { useFavsStates } from "./Context";
 
 const Home = () => {
-  const [list, setList] = useState([]);
-  useEffect(() => {
-    axios("https://jsonplaceholder.typicode.com/users").then((res) =>
-      setList(res.data)
-    );
-  }, []);
+  const { state } = useFavsStates();
 
   return (
     <>
       <h1>Odontólogos</h1>
       <div className="card-grid">
-        {list.map((user) => (
+        {state.list.map((user) => (
           <Card key={user.id} item={user} />
         ))}
       </div>

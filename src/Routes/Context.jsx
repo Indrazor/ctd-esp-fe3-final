@@ -1,11 +1,25 @@
-import { createContext, useContext, useState } from "react";
+import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const FavsStates = createContext();
 
 const Context = ({ children }) => {
-  const [favs, setFavs] = useState([]);
+  const [state, setState]  = useState({
+    
+    favs:[],
+    list:[]
+  });
+  // const [favs, setFavs] = useState([]);
+  // const [list, setList] = useState([]);
+  
+  useEffect(() => {
+    axios("https://jsonplaceholder.typicode.com/users").then((res) =>
+      setState({...state, list: res.data})
+    );
+  }, []);
+
   return (
-    <FavsStates.Provider value={{ favs, setFavs }}>
+    <FavsStates.Provider value={{state, setState}}>
       {children}
     </FavsStates.Provider>
   );
