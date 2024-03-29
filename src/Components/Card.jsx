@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useFavsStates } from "../Routes/Context";
 
 const Card = ({ item }) => {
   const { name, username } = item;
+  const { setFavs } = useFavsStates();
   return (
     <>
       <div className="card">
@@ -11,7 +13,12 @@ const Card = ({ item }) => {
         </Link>
         <h3>{name}</h3>
         <h4>{username}</h4>
-        <button className="favButton">⭐</button>
+        <button
+          className="favButton"
+          onClick={() => setFavs((prevState) => [...prevState, item])}
+        >
+          ⭐
+        </button>
       </div>
     </>
   );

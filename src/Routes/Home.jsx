@@ -11,11 +11,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="card-grid">
-      {list.map((user) => (
-        <Card key={user.id} item={user} />
-      ))}
-    </div>
+    <>
+      <h1>Odontólogos</h1>
+      <div className="card-grid">
+        {list.map((user) => (
+          <Card key={user.id} item={user} />
+        ))}
+      </div>
+    </>
   );
 };
 

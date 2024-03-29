@@ -6,13 +6,15 @@ import { routes } from "./utils/routes";
 const Navbar = () => {
   // const navigate = useNavigate();
   return (
-    <div>
-      <h1><span>D</span>H Odonto</h1>
-      <nav className="nav">
+    <div className="nav">
+      <h1>
+        <span>D</span>H Odonto
+      </h1>
+      <nav>
         <Link to={routes.home}>Home</Link>
         <Link to={routes.contacto}>Contacto</Link>
         <Link to={routes.favs}>Destacados</Link>
-        <Link to={routes.dentista}>Detalle del dentista</Link>
+        {/* <Link to={routes.dentista}>Detalle del dentista</Link> */}
         {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
         <button>Change theme</button>
       </nav>
