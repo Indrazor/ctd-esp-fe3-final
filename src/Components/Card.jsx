@@ -3,7 +3,7 @@ import { useGlobalContext } from "../Components/utils/global.context";
 
 const Card = ({ item }) => {
   const { name, username } = item;
-  const { state, setState } = useGlobalContext();
+  const { state, dispatch } = useGlobalContext();
 
   return (
     <>
@@ -15,8 +15,7 @@ const Card = ({ item }) => {
         <h4>{username}</h4>
         <button
           className="favButton"
-          onClick={() => setState({ ...state, favs: [...state.favs, item] })}
-        >
+          onClick={() => dispatch({type: "ADD_FAVS", payload: item})}>
           ⭐
         </button>
       </div>

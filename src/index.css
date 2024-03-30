@@ -7,12 +7,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --nav-color: #bcc1ca;
+  --theme-button-color: #010613;
+  --font-color: #000000;
+  --font-color2: #bbbbbb;
+  --bg-color: #62646b;
+  --heading-color: #292922;
+}
+
+.dark {
+  background-color: #12121296;
+  color: white;
+  --nav-color: #180707;
+  --theme-button-color: #f7d998;
+  --font-color: #e1e1ff;
+  --font-color2: #646464;
+  --bg-color: #242424;
+  --heading-color: #818cab;
+}
+.dark > a {
+  color: white;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 .favButton {
-  background-color: rgba(136, 136, 136, 0.116);
+  background-color: var(--bg-color);
   padding: 10px;
   border: none;
   width: 100%;
@@ -26,14 +49,15 @@ h1 {
 
 .nav {
   display: flex;
-  /* width: 100vw; */
   justify-content: flex-end;
   justify-content: space-around;
-  background-color: rgb(214, 211, 211);
+  background-color: var(--nav-color);
 }
 
 nav > Button {
-  background-color: crimson;
+  background-color: var(--theme-button-color);
+  color: var(--font-color2);
+  font-size: 20px;
   padding: 40;
   border: none;
   margin: 0%;
@@ -43,7 +67,6 @@ nav > Button {
 
 nav {
   display: flex;
-  /* width: 100vw; */
   text-align: center;
   margin: 10px;
   justify-content: flex-end;
@@ -51,7 +74,7 @@ nav {
 }
 
 a {
-  color: #000;
+  color: var(--font-color);
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
@@ -150,13 +173,5 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-.dark {
-  background-color: #12121296;
-  color: white;
-}
-.dark > a {
-  color: white;
+  background-color: var(--nav-color);
 }

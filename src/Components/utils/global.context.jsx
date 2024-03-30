@@ -1,22 +1,28 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { reducer } from "./reducer";
 
 const GlobalContext = createContext();
 
+const initialState = {
+  list: [],
+  dentist: [],
+  favs: [],
+  theme: "",
+};
+
 const ContextProvider = ({ children }) => {
-  const [state, setState] = useState({
-    favs: [],
-    list: [],
-  });
+  const [state, dispatch] = useReducer(reducer, initialState);
+  console.log(state);
 
   useEffect(() => {
     axios("https://jsonplaceholder.typicode.com/users").then((res) =>
-      setState({ ...state, list: res.data })
+      dispatch({ type: "GET_LIST", payload: res.data })
     );
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ state, setState }}>
+    <GlobalContext.Provider value={{ state, dispatch }}>
       {children}
     </GlobalContext.Provider>
   );
