@@ -14,7 +14,6 @@ const Navbar = () => {
         <Link to={routes.home}>Home</Link>
         <Link to={routes.contacto}>Contacto</Link>
         <Link to={routes.favs}>Destacados</Link>
-        {/* <Link to={routes.dentista}>Detalle del dentista</Link> */}
         {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
         <button>Change theme</button>
       </nav>

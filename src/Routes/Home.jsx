@@ -1,9 +1,9 @@
 
 import Card from "../Components/Card";
-import { useFavsStates } from "./Context";
+import { useGlobalContext } from "../Components/utils/global.context";
 
 const Home = () => {
-  const { state } = useFavsStates();
+  const { state } = useGlobalContext();
 
   return (
     <>

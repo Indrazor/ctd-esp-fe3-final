@@ -1,10 +1,10 @@
-
 import { Link } from "react-router-dom";
-import { useFavsStates } from "../Routes/Context";
+import { useGlobalContext } from "../Components/utils/global.context";
 
 const Card = ({ item }) => {
   const { name, username } = item;
-  const { state, setState } = useFavsStates();
+  const { state, setState } = useGlobalContext();
+
   return (
     <>
       <div className="card">
@@ -13,7 +13,10 @@ const Card = ({ item }) => {
         </Link>
         <h3>{name}</h3>
         <h4>{username}</h4>
-        <button className="favButton" onClick={() => setState({...state, favs: [...state.favs, item]})}>
+        <button
+          className="favButton"
+          onClick={() => setState({ ...state, favs: [...state.favs, item] })}
+        >
           ⭐
         </button>
       </div>
