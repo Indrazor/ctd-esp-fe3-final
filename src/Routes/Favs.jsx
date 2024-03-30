@@ -2,8 +2,9 @@
 import Card from "../Components/Card";
 import { useGlobalContext } from "../Components/utils/global.context";
 
+
 const Favs = () => {
-  const { state } = useGlobalContext();
+  const { state, dispatch } = useGlobalContext();
   return (
     <>
       <h1>Destacados</h1>

@@ -5,6 +5,22 @@ const Card = ({ item }) => {
   const { name, username } = item;
   const { state, dispatch } = useGlobalContext();
 
+
+  localStorage.setItem("favs", JSON.stringify(state.favs));
+
+   const findDentista = state.favs.some((fav) => fav.id === item.id);
+
+   const addFav = ()=>{
+    // Aqui iria la logica para agregar la Card en el localStorage
+    if (!findDentista) {
+      dispatch({ type: "ADD_FAVS", payload: item });
+      alert('Usuario agregado a favoritos');
+    } else {
+      dispatch({ type: "DEL_FAVS", payload: item });
+      alert('Usuario eliminado de favoritos');
+    }
+  }
+
   return (
     <>
       <div className="card">
@@ -15,8 +31,8 @@ const Card = ({ item }) => {
         <h4>{username}</h4>
         <button
           className="favButton"
-          onClick={() => dispatch({type: "ADD_FAVS", payload: item})}>
-          ⭐
+          onClick={addFav}>
+          {findDentista ? '🌟' : '⭐'}
         </button>
       </div>
     </>

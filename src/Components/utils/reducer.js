@@ -5,13 +5,12 @@ export const reducer = (state, action) => {
     case "ADD_FAVS":
       return { ...state, favs: [...state.favs, action.payload] };
     case "DEL_FAVS":
-    //   const filteredFavs = state.favs.filter(
-    //     (fav) => fav.id !== action.payload
-    //   );
-      return { ...state, favs: filteredFavs };
+      return {
+        ...state,
+        favs: state.favs.filter((fav) => fav !== action.payload),
+      };
     case "THEME":
       return { ...state, theme: state.theme === "" ? "dark" : "" };
-    //   return { ...state, theme: state.theme === "light" ? "dark" : "light" };
     default:
       throw new Error();
   }
